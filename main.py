@@ -19,17 +19,18 @@ def normalize_phone_number(phone_number: str) -> Optional[str]:
         The normalized phone number, or None if normalization fails.
     """
     try:
-        # Remove all non-digit characters
+        # The leading plus has to be read from the original string, before
+        # stripping. An earlier version tested digits_only for it, but the
+        # strip has already removed every plus, so that branch could never
+        # run and international numbers such as +44 fell through to None.
+        has_country_code = phone_number.strip().startswith('+')
         digits_only = re.sub(r'\D', '', phone_number)
 
-        # Check if the number already starts with a country code (e.g., +1)
-        if digits_only.startswith('+'):
-            # Assume it's already in a reasonable format and just clean it
-            cleaned_number = re.sub(r'\D', '', digits_only)
-            if len(cleaned_number) < 7:
+        if has_country_code:
+            if len(digits_only) < 7:
               logging.error(f"Phone number {phone_number} is too short after cleaning.")
               return None  # Insufficient digits for a valid number
-            return "+" + cleaned_number
+            return "+" + digits_only
         elif len(digits_only) == 10:  # Assume US number
             return "+1" + digits_only
         elif len(digits_only) == 11 and digits_only.startswith('1'):  # US number with leading 1
