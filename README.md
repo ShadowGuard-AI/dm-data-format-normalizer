@@ -1,3 +1,5 @@
+![Banner](banner.png)
+
 # dm-data-format-normalizer
 Consistently formats data, such as phone numbers or dates, to a predefined standard. This makes identifying true values more difficult by removing distinguishing formatting characteristics that can act as identifiers. Handles data type conversions where necessary for normalization. - Focused on Tools designed to generate or mask sensitive data with realistic-looking but meaningless values
 
