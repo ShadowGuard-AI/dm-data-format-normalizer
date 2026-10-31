@@ -14,7 +14,7 @@ Consistently formats data, such as phone numbers or dates, to a predefined stand
 - `--type`: The type of data to normalize.
 - `--input`: The input data to normalize.
 - `--input_format`: The input date format (required for date normalization). Example: '%m/%d/%Y'
-- `--output_format`: The output date format (default: 
+- `--output_format`: The output date format (default: '%Y-%m-%d')
 - `--log_level`: Set the logging level (default: INFO)
 
 ## License

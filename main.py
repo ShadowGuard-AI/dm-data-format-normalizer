@@ -95,8 +95,8 @@ def setup_argparse() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Data Format Normalizer - Normalizes phone numbers, dates, and strings to a standard format.")
     parser.add_argument("--type", choices=["phone", "date", "string"], required=True, help="The type of data to normalize.")
     parser.add_argument("--input", required=True, help="The input data to normalize.")
-    parser.add_argument("--input_format", help="The input date format (required for date normalization).  Example: '%m/%d/%Y'")
-    parser.add_argument("--output_format", default="%Y-%m-%d", help="The output date format (default: '%Y-%m-%d'). Only applicable to date normalization.")
+    parser.add_argument("--input_format", help="The input date format (required for date normalization).  Example: '%%m/%%d/%%Y'")
+    parser.add_argument("--output_format", default="%Y-%m-%d", help="The output date format (default: '%%Y-%%m-%%d'). Only applicable to date normalization.")
     parser.add_argument("--log_level", choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"], default="INFO", help="Set the logging level (default: INFO)")
 
     return parser
