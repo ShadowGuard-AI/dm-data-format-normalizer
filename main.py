@@ -27,6 +27,11 @@ def normalize_phone_number(phone_number: str) -> Optional[str]:
         digits_only = re.sub(r'\D', '', phone_number)
 
         if has_country_code:
+            # A leading plus is taken as proof the caller already
+            # included a country code: the digits are passed through
+            # untouched past a minimum length, with no check that the
+            # code is a real one or that the total length is plausible
+            # for the country named. Plus and seven digits is enough.
             if len(digits_only) < 7:
               logging.error(f"Phone number {phone_number} is too short after cleaning.")
               return None  # Insufficient digits for a valid number
@@ -57,6 +62,11 @@ def normalize_date(date_string: str, input_format: str, output_format: str = "%Y
         The normalized date string, or None if normalization fails.
     """
     try:
+        # Parsing is exactly as strict as strptime is, no stricter:
+        # it accepts single digit fields under two digit directives
+        # and ignores nothing else. A value that nearly matches the
+        # named format can therefore parse and be rewritten, and the
+        # caller cannot tell that from an exact match.
         date_object = datetime.datetime.strptime(date_string, input_format)
         normalized_date = date_object.strftime(output_format)
         return normalized_date
