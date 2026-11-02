@@ -1,166 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dm Data Format Normalizer: what it is, how it runs, where it stops</title>
-<meta name="description" content="Dm Data Format Normalizer is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.">
-<style>
-:root {
-  --bg: #101214; --panel: #1c1f22; --ink: #eee8dc;
-  --mut: #25292d;
-  --acc: #e8b339; --acc2: #c75432;
-  --line: #1c1f22;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink);
-  font-family: Georgia, 'Times New Roman', serif; line-height: 1.55; }
-code, pre, .mono { font-family: 'Courier New', monospace; }
-a { color: var(--acc2); }
-.hero { padding: 3rem 6vw 1rem; }
-.hero img.banner { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; }
-.logo { width: 92px; height: 92px; border-radius: 18px;
-  border: 1px solid var(--line); }
-h1 { font-size: 2.4rem; margin: 0.4em 0 0.1em; }
-h2 { border-bottom: 2px solid var(--acc); padding-bottom: 0.2em;
-  margin-top: 2em; }
-.lede { font-size: 1.15rem; max-width: 62ch; }
-main { padding: 0 6vw 3rem; max-width: 1180px; margin: 0 auto; }
-.grid { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-.card { background: var(--panel); border: 1px solid var(--line);
-  border-radius: 12px; padding: 1rem 1.2rem; }
-.card.pop { animation: rise 0.7s ease both; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; } }
-pre.code { background: #101014; color: #e8e6df; padding: 1rem 1.2rem;
-  border-radius: 12px; overflow-x: auto; font-size: 0.86rem;
-  border-left: 5px solid var(--acc); }
-table { border-collapse: collapse; width: 100%; }
-td, th { border-bottom: 1px solid var(--line); padding: 0.45rem 0.6rem;
-  text-align: left; }
-.shots { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.shots img { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; background: #f4f1e8; }
-footer { padding: 2rem 6vw; border-top: 1px solid var(--line);
-  color: var(--mut); }
-.rail { display: flex; gap: 1.2rem; align-items: flex-start; }
-.rail nav { position: sticky; top: 1rem; min-width: 180px; }
-@media (max-width: 760px) { .rail { flex-direction: column; }
-  .rail nav { position: static; } }
-@media (prefers-reduced-motion: reduce) {
-  .card.pop { animation: none; } * { scroll-behavior: auto; } }
-</style>
-</head>
-<body class="layout-note">
-<!-- This page exists for dm-data-format-normalizer alone: the layout (notebook),
-     the colors, and the type were picked for this project, not
-     shared with the other project pages. The code block below is
-     copied from the file it names, line for line. If it looks
-     plain, that is because the project is plain, and I would
-     rather the page match the project than dress it up. The one
-     thing I will not do here is oversell: what this project does
-     not do is stated on the page, not hidden from it. -->
-<header class="hero">
-  <img class="logo" src="assets/logo.png" alt="Dm Data Format Normalizer logo">
-  <img class="banner" src="assets/banner.png" alt="">
-  <h1>Dm Data Format Normalizer</h1>
-  <p class="mono"><a href="https://github.com/ShadowGuard-AI/dm-data-format-normalizer">github.com/ShadowGuard-AI/dm-data-format-normalizer</a></p>
-</header>
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>dm-data-format-normalizer: Minoan Bull Court Frescoes</title>
+<style>@font-face{font-family:Disp;src:url("fonts/Bytesized.ttf")}@font-face{font-family:Text;src:url("fonts/AlegreyaSans.ttf")}
+body{background:#f0e9d6;font-family:Text,sans-serif;color:#2e2118;margin:0}main{max-width:960px;margin:0 auto;padding:28px}
+h1,h2,h3{font-family:Disp,serif;color:#a83426}section{background:#f5efdd;padding:18px 22px;margin:16px 0;border:3px solid #a83426;position:relative}
+section::before{content:"";position:absolute;left:0;top:0;width:18px;height:18px;background:#243c2e}
+img{max-width:100%}button{background:#f0e9d6;color:#a83426;border:2px solid #a83426;padding:12px 20px;margin:4px;font-family:Disp,serif;position:relative}
+button::before{content:"";position:absolute;left:4px;top:4px;width:10px;height:10px;background:#243c2e}
+button:hover{background:linear-gradient(90deg,#e6d3ac,#f0e9d6)}button:active{border-color:#80261c}button:focus{outline:3px double #243c2e}
+a{color:#966a34}a:hover{color:#a83426}.label{display:inline-block;background:#f0e9d6;border-left:5px solid #a83426;padding:4px 10px;font-size:14px}
+pre{white-space:pre-wrap;font-family:Text,sans-serif;background:#efe8d2;padding:14px}code{font-family:Text,sans-serif}
+.floorband{height:26px;background:#f0e9d6;border-top:4px solid #243c2e;margin-top:22px}</style></head><body><main>
+<img src="intro-banner.png" alt="Introduction banner: the patched bull at the centre of a palace court, an acrobat arched over its back, fresco panels on the walls, no name anywhere">
+<h1>dm-data-format-normalizer: Minoan Bull Court Frescoes</h1>
+<p>dm-data-format-normalizer: Minoan Bull Court Frescoes names itself in that form throughout this page. The page is arranged as a palace wall read in panels, left to right, top tier then lower tier. Ground is marble white warmed toward plaster. Panels sit on that ground with roman red borders and cypress corners. Headings are set in Bytesized in roman red. Body text is set in Alegreya Sans in bronze darkened toward brown black.</p>
+<img src="logo.png" alt="Logo: the bull head in fresco profile, one long horn across the top, a leaf band beneath the jaw, the name below"><img src="banner.png" alt="Wordmark banner: the full fresco wall with the bull in full vault at the centre and the name cut on a stone plaque at the foot of the wall">
+<img src="scene.svg" alt="Animated scene in three bands: cypress tops stirring, real light crossing the court floor, a bronze vessel set down and a red cloth corner lifting">
+<div><button type="button">Normalize to the Standard</button></div>
+<p><span class="label">Kind of Data</span> <span class="label">Data to Normalize</span></p>
+<h3>One Standard Dress</h3><h3>Quirks Left at the Gate</h3><h3>Dates Need Their Incoming Shape</h3><h3>Kinds the Page Will Not Guess</h3>
+<section><h2>Plate one: the job</h2><p>Values arrive in mixed formatting dress. They leave in one standard dress, and the quirks that could mark a single value out are taken off on the way through. The program consistently formats data, such as phone numbers or dates, to a predefined standard. This makes identifying true values more difficult by removing distinguishing formatting characteristics that can act as identifiers.</p></section>
+<section><h2>Plate two: scope, carefully</h2><p>Phone numbers and dates are illustrations, not a closed list, because the type control is printed with no list of accepted kinds beside it. Data type conversion is stated as part of the job where normalization needs it. The tool is tied to programs designed to generate or mask sensitive data with realistic-looking but meaningless values.</p><p>Note, at full size: this site will not guess at further kinds the README never names.</p></section>
+<section><h2>Plate three: dates</h2><p>An input format must be given for date work. The README illustrates the incoming arrangement with the format pattern '%m/%d/%Y'. An output format has a stated default, the format pattern '%Y-%m-%d'. Placeholders occupy every data position on this plate. No calendar day from any person's records appears here, because the source prints format patterns only, arrangements of month, day, and year markers, and no actual date at all.</p></section>
+<section><h2>Plate four: the panel of the wrong name</h2><p><code>git clone https://github.com/ShadowGuard-AI/dm-data-format-normalizer</code></p><p>The clone command above names the organisation that actually owns this repository, hyphen included, and that showing is labelled here as a correction in plain view, not as a quiet repaint. The fetched line was wrong in a specific way, counted openly: ShadowStrikeHQ occurs 2 times across the fetched README, once in the install line and once in the closing licence line. ShadowGuard-AI occurs 0 times there. ShadowGuardAI occurs 0 times there. This site would rather exhibit the count than conceal the repaint under fresh plaster.</p></section>
+<section><h2>Plate five: invocation as architecture</h2><p><code>./dm-data-format-normalizer [params]</code></p><p>A program call forms the lintel. Beneath it, placeholders mark where kind, data, and options would stand: a kind placeholder, a data placeholder, an incoming format placeholder, an outgoing format placeholder, a logging placeholder. A notice carved beside that frame warns visitors that the README itself stages no worked call, so nothing on this panel impersonates a demonstration the source never gave. The README prints no worked normalization, no specimen date being converted, and no before and after pair of strings.</p></section>
+<section><h2>Plate six: the six controls in procession</h2><p>Help opens the procession: <code>-h</code> shows the help message and exits. Kind follows: <code>--type</code> declares the type of data to normalize, with no roster of kinds printed beside it. Data follows: <code>--input</code> supplies the input data to normalize, with no shape stated for it. Incoming format follows: <code>--input_format</code> supplies the input date format, carries the example pattern '%m/%d/%Y', and is required when dates are the work. Outgoing format follows: <code>--output_format</code> supplies the output date format and defaults to '%Y-%m-%d'. Logging level closes the procession: <code>--log_level</code> sets the logging level and defaults to INFO. Each stated default is attached to its owner and no default is attached to any other control.</p></section>
+<section><h2>Plate seven: rights, in contrast</h2><p>On one side, the README closing line survives in the record block below with its wrong organisation name intact, preserved rather than freshened: Copyright (c) ShadowStrikeHQ. On the other side, the separate LICENSE fact is set in miniature: the document grants MIT terms, and its ownership line is recorded by construction only, a public pen name leading, a bracketed pairing of a given name with one initial following, and the account handle closing, with that initial never opened here.</p><p>Those two sides do not agree.</p></section>
+<section><h2>The preserved README record</h2><pre>![Banner](banner.png)
 
-<main>
-  <section class="rail">
-    <nav aria-label="on this page">
-      <p class="mono"><a href="#run">Run it</a><br>
-      <a href="#files">The files</a><br>
-      <a href="#sheets">The sheets</a><br>
-      <a href="https://github.com/ShadowGuard-AI/dm-data-format-normalizer">The repo</a></p>
-    </nav>
-    <div>
-      <p class="lede">Dm Data Format Normalizer is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.</p>
-      <div class="grid">
-        <div class="card pop"><h3>What it is</h3>
-          <p>Dm Data Format Normalizer: 5 files, 174 counted
-          lines across Python 152, Markdown 21, Text 1. One job, done in the
-          open, in files you can read.</p></div>
-        <div class="card pop"><h3>The biggest piece</h3>
-          <p><code>main.py</code> carries the most
-          lines. If the project grows, that file is where the growth
-          lands first, for better or worse.</p></div>
-        <div class="card pop"><h3>The honest gap</h3>
-          <p>No test files yet. That is the honest gap, and the roadmap in the visuals folder says what the first one should cover.</p></div>
-      </div>
-      <section id="run">
-        <h2>Run it</h2>
-        <p>The repo README has the exact commands for this one. The
-        shape is the shape for most of my projects: clone it, read the
-        top file first so you know what will happen, then run it on
-        something you do not mind breaking.</p>
-        <p class="mono">$ git clone https://github.com/ShadowGuard-AI/dm-data-format-normalizer.git<br>$ cd dm-data-format-normalizer</p>
-      </section>
-      
-  <section aria-label="real code">
-    <h2>The code, as it sits in the repo</h2>
-    <p>From <code>main.py</code>, line 9 on. I did
-    not tidy it for the page. What you see is what the file has.</p>
-    <pre class="code"><code>logging.basicConfig(level=logging.INFO, format=&#x27;%(asctime)s - %(levelname)s - %(message)s&#x27;)
+# dm-data-format-normalizer
+Consistently formats data, such as phone numbers or dates, to a predefined standard. This makes identifying true values more difficult by removing distinguishing formatting characteristics that can act as identifiers. Handles data type conversions where necessary for normalization. - Focused on Tools designed to generate or mask sensitive data with realistic-looking but meaningless values
 
-def normalize_phone_number(phone_number: str) -&gt; Optional[str]:
-    &quot;&quot;&quot;
-    Normalizes a phone number to the E.164 format (+[country code][number]).
+## Install
+`git clone https://github.com/ShadowStrikeHQ/dm-data-format-normalizer`
 
-    Args:
-        phone_number: The phone number to normalize.
+## Usage
+`./dm-data-format-normalizer [params]`
 
-    Returns:
-        The normalized phone number, or None if normalization fails.
-    &quot;&quot;&quot;
-    try:
-        # The leading plus has to be read from the original string, before
-        # stripping. An earlier version tested digits_only for it, but the
-        # strip has already removed every plus, so that branch could never
-        # run and international numbers such as +44 fell through to None.
-        has_country_code = phone_number.strip().startswith(&#x27;+&#x27;)
-        digits_only = re.sub(r&#x27;\D&#x27;, &#x27;&#x27;, phone_number)
+## Parameters
+- `-h`: Show help message and exit
+- `--type`: The type of data to normalize.
+- `--input`: The input data to normalize.
+- `--input_format`: The input date format (required for date normalization). Example: '%m/%d/%Y'
+- `--output_format`: The output date format (default: '%Y-%m-%d')
+- `--log_level`: Set the logging level (default: INFO)
 
-        if has_country_code:
-            if len(digits_only) &lt; 7:</code></pre>
-  </section>
-      <section id="files">
-        <h2>The files that matter</h2>
-        <table><tr><th>File</th><th>Lines</th></tr>
-        <tr><td><code>main.py</code></td><td>152</td></tr>
-        <tr><td><code>README.md</code></td><td>21</td></tr>
-        <tr><td><code>requirements.txt</code></td><td>1</td></tr>
-        <tr><td><code>banner.png</code></td><td>0</td></tr>
-        <tr><td><code>logo.png</code></td><td>0</td></tr>
-        </table>
-        <p>Names doing the work: <span class="mono">normalize_phone_number, normalize_date, normalize_generic_string, setup_argparse, main</span>.</p>
-      </section>
-      <section id="sheets">
-        <h2>Drawn by hand</h2>
-        <p>I sketch my projects on notebook paper so I have to
-        understand them well enough to draw them. The full set,
-        with the counts and how they were counted, is the
-        <a href="https://github.com/ShadowGuard-AI/dm-data-format-normalizer/tree/main/dm-data-format-normalizer-Visuals">dm-data-format-normalizer-Visuals</a>
-        folder in the repo. Nothing is drawn over the binder holes.
-        That is a rule, not a style.</p>
-        <div class="shots">
-          <img src="assets/architecture.png" alt="Hand drawn architecture sheet for Dm Data Format Normalizer">
-          <img src="assets/flowchart.png" alt="Hand drawn flowchart sheet for Dm Data Format Normalizer">
-          <img src="assets/product-map.png" alt="Hand drawn product map sheet for Dm Data Format Normalizer">
-        </div>
-      </section>
-    </div>
-  </section>
-</main>
-<footer>
-  <p>Dm Data Format Normalizer is one of my projects. This page was written
-  from the repo itself on 2026-10-30: the counts are the
-  repo's counts, the code is the repo's code, and the gaps are the
-  repo's gaps.</p>
-</footer>
-</body>
-</html>
+## License
+Copyright (c) ShadowStrikeHQ</pre><p>Frescoes survive because nobody paints over the damaged panel to make the room look tidy, and the block above is treated with the same restraint. Both of its ownership lines name ShadowStrikeHQ, an organisation that is not this repository's owner in any current spelling. They remain in the block because the block is evidence. The corrected acquisition line lives on plate four, labelled as a correction, where a repaint belongs: on the new surface, announced, never passed off as original plaster.</p></section>
+<div class="floorband"></div>
+</main></body></html>
