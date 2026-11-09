@@ -18,12 +18,12 @@ Consistently formats data, such as phone numbers or dates, to a predefined stand
 ![Major separator](sep-heavy.svg)
 
 ## Install
-`git clone https://github.com/ShadowStrikeHQ/dm-data-format-normalizer`
+`git clone https://github.com/ShadowGuard-AI/dm-data-format-normalizer`
 
 ![Minor separator](sep-light.svg)
 
 ## Usage
-`./dm-data-format-normalizer [params]`
+`python3 main.py [options]`
 
 > Wall label: date work cannot start without an input format. The incoming arrangement has to be declared before a date can be normalized, while the outgoing arrangement and the logging level each carry a stated default.
 
@@ -44,7 +44,7 @@ Consistently formats data, such as phone numbers or dates, to a predefined stand
 ![Minor separator](sep-light.svg)
 
 ## License
-Copyright (c) ShadowStrikeHQ
+This project is released under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ![Major separator](sep-heavy.svg)
 
